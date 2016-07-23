@@ -1,61 +1,81 @@
-//strict mode "use strict"
-
 $(document).ready(function() {
 
-	var userInput = prompt("Please enter a number", "43");
 
-	/*
-	var n = parseInt(userInput);
-	if isNaN(n) {
-		$('.results').append("not a number");
-	}
-	else {
-		var test = FizzBuzz(userInput);
-		appendresults(test);
-	}
-
-	*/
+	$( ".run" ).on( "click", function() {
+  		var userInput = +($("#numberProvided").val());
+  		fizzbuzz(value);
+		});
 
 
 
-	
-	function FizzBuzz(userInput) {
-		for (i = 1; i <= userInput; i++) {
-			result = " ";
-			if (i % 15 === 0){
-				result += "FizzBuzz <br>";
-			}
-			else if (i % 3 === 0){
-				result += "Fizz <br>";
-			}
-			else if (i % 5 === 0){
-				result += "Buzz <br>";
-			}
-			else {
-				result += i + '<br>';
-			}
-			appendresults(result);
+	function fizzbuzz(num) {
+
+    for (i = 1; i <= num; i++) {
+        result = " ";
+        //check if i is divisible by both 3 and 5
+        if (i % 15 === 0) {
+            result += "FizzBuzz <br>";
+        }
+        //check if i is divisible by 3
+        else if (i % 3 === 0) {
+            result += "Fizz <br>";
+        }
+        //check if i is divisible by 5
+        else if (i % 5 === 0) {
+            result += "Buzz <br>";
+        }
+        //print i
+        else {
+            result += i + '<br>';
+        }
+        appendToResult(result);
+
+    }
+
+
+}
+	function appendToResult(result) {
+    //Append result of fizzbuzz to html
+    $('.result').append(result);
+}
+
+
+}); //end doc ready
+
+/*
+
+
+	function checkValue (value){
+		if (isNaN(value)){
+			alert('Please enter a valid number');
+		}
+		else {
+			var test = FizzBuzz(userInput);
+			appendresults(test);
 		}
 	}
 
-	function appendresults(result){
-		$('.results').append(result);
-	}
 
-}); // end of doc ready
+
 
 /*
-	function someName() {
 
     function checkValue(value) {
 		if (isNaN (value) {
 		alert('Please add a number between 1 and 100');
 	}
 
-	$( ".run" ).on( "click", function() {
-  		var number = +"#numberProvided";
-  		console.log("number converted");
-  		console.log('#numberProvided');
+	function onInput(){
+	var userInput = prompt("Please enter a number", "43");
+
+	function clear() {
+		$('.clear').on('click', function(){
+			$('#numberProvided').empty();
+			$('#numberProvided').val('');
+
+
 		});
+	}
+	clear();
 
 */
