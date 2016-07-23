@@ -1,23 +1,61 @@
+//strict mode "use strict"
+
 $(document).ready(function() {
 
-		var numberProvided = +$("#numberProvided").val();
-		// if NaN alert("Please add a number between 1 and 100");
+	var userInput = prompt("Please enter a number", "43");
 
-		function FizzBuzz() {
-			for (var i = 1; i < numberProvided; i++){
-	
-	if (i % 15 === 0){
-		$( "body" ).append("<p>FizzBuzz</p>");
-	}
-	else if (i % 3 === 0){
-		$( "body" ).append("<p>Fizz</p>");
-	}
-	else if (i % 5 === 0){
-		$( "body" ).append("<p>Buzz</p>");
+	/*
+	var n = parseInt(userInput);
+	if isNaN(n) {
+		$('.results').append("not a number");
 	}
 	else {
-		$( "body" ).append(i, "</br>");
+		var test = FizzBuzz(userInput);
+		appendresults(test);
 	}
-}
-}
-}); // end doc ready
+
+	*/
+
+
+
+	
+	function FizzBuzz(userInput) {
+		for (i = 1; i <= userInput; i++) {
+			result = " ";
+			if (i % 15 === 0){
+				result += "FizzBuzz <br>";
+			}
+			else if (i % 3 === 0){
+				result += "Fizz <br>";
+			}
+			else if (i % 5 === 0){
+				result += "Buzz <br>";
+			}
+			else {
+				result += i + '<br>';
+			}
+			appendresults(result);
+		}
+	}
+
+	function appendresults(result){
+		$('.results').append(result);
+	}
+
+}); // end of doc ready
+
+/*
+	function someName() {
+
+    function checkValue(value) {
+		if (isNaN (value) {
+		alert('Please add a number between 1 and 100');
+	}
+
+	$( ".run" ).on( "click", function() {
+  		var number = +"#numberProvided";
+  		console.log("number converted");
+  		console.log('#numberProvided');
+		});
+
+*/
