@@ -1,81 +1,56 @@
 $(document).ready(function() {
 
-
-	$( ".run" ).on( "click", function() {
-  		var userInput = +($("#numberProvided").val());
-  		fizzbuzz(value);
-		});
-
-
-
-	function fizzbuzz(num) {
-
-    for (i = 1; i <= num; i++) {
-        result = " ";
-        //check if i is divisible by both 3 and 5
-        if (i % 15 === 0) {
-            result += "FizzBuzz <br>";
-        }
-        //check if i is divisible by 3
-        else if (i % 3 === 0) {
-            result += "Fizz <br>";
-        }
-        //check if i is divisible by 5
-        else if (i % 5 === 0) {
-            result += "Buzz <br>";
-        }
-        //print i
-        else {
-            result += i + '<br>';
-        }
-        appendToResult(result);
-
-    }
-
-
-}
-	function appendToResult(result) {
-    //Append result of fizzbuzz to html
-    $('.result').append(result);
-}
-
+	$('.convert').on('click', function() {
+        var userInput = +($('#userInput').val());
+		checkValue(userInput);
+	});
+	clear();	
 
 }); //end doc ready
 
-/*
-
-
-	function checkValue (value){
-		if (isNaN(value)){
-			alert('Please enter a valid number');
-		}
-		else {
-			var test = FizzBuzz(userInput);
-			appendresults(test);
-		}
-	}
-
-
-
-
-/*
-
-    function checkValue(value) {
-		if (isNaN (value) {
-		alert('Please add a number between 1 and 100');
-	}
-
-	function onInput(){
-	var userInput = prompt("Please enter a number", "43");
-
-	function clear() {
+	function clear(){
 		$('.clear').on('click', function(){
-			$('#numberProvided').empty();
-			$('#numberProvided').val('');
-
-
+			$('.result').empty();
+			$('#userInput').val('');
 		});
 	}
-	clear();
 
-*/
+
+
+	function checkValue(value) {
+		if (isNaN(value)){
+			alert("Please enter a valid number");
+		}
+		else if (value % 1 != 0) {
+			alert("Please enter a non decimal number");
+		}
+		else if (value < 1 || value > 100){
+			alert("Please enter a number between 1 and 100");
+		}
+		else {
+			FizzBuzz(value);
+		}
+	}
+
+	function FizzBuzz(num) {
+		for (i = 1; i <= num; i++) {
+       		result = " ";
+        	if (i % 15 === 0) {
+            	result += "FizzBuzz <br>";
+        	}
+        	else if (i % 3 === 0) {
+            	result += "Fizz <br>";
+        	}
+        	else if (i % 5 === 0) {
+           	 result += "Buzz <br>";
+       		}
+        	else {
+          		result += i + '<br>';
+        	}
+        	appendToResult(result);
+        }
+     }
+
+     function appendToResult(result) {
+     	$('.result').append(result);
+     }
